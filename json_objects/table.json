@@ -1,0 +1,18 @@
+[
+    {
+        "id": "<coin id>",
+        "symbol": "<coin symbol>",
+        "name": "<coin name>",
+        "price": "30403.34",
+        "marketcap": "234234234",
+        "circulating": "234234234",
+        "reddit_score": "234",
+        "reddit_activity": "234",
+        "reddit_48hr": "234",
+        "twitter_activity": "234",
+        "twitter_48hr": "234",
+        "hour": "34.2",
+        "day": "34.2",
+        "week": "34.2"
+    }
+]

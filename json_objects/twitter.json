@@ -1,0 +1,20 @@
+[
+    {
+        "coin_id": "<coin_id>",
+        "data": 
+        [
+            {
+                "day": "Jan 9 2018",
+                "new_tweets": "10",
+                "comment_sum": "1022",
+                "retweet_sum": "1233",
+            },
+            {
+                "day": "Jan 10 2018",
+                "new_posts": "10",
+                "comment_sum": "1022",
+                "score_sum": "1233",
+            }            
+        ]
+    }
+]

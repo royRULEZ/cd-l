@@ -1,14 +1,12 @@
 const axios = require("axios");
-const url =
-  //"https://maps.googleapis.com/maps/api/geocode/json?address=Florence";
-  "https://api.coinmarketcap.com/v1/ticker/tron/";
+const url = "https://api.coinmarketcap.com/v1/ticker/?limit=0";
 axios
-  .get(url)
-  .then(response => {
-    console.log(
-      `City: ${response.data[0].id}`
-    );
-  })
-  .catch(error => {
-    console.log(error);
-  });
+    .get(url)
+    .then(response => {
+        console.log(
+            `City: ${response.data[0].id}`
+        );
+    })
+    .catch(error => {
+        console.log(error);
+    });

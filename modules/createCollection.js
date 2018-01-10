@@ -30,27 +30,13 @@ MongoClient.connect(db_url, function (err, client) {
             if(err) return console.log(err);
 
             // Setup
-            var db = client.db('test');
-            var collection = 'table';
+            var db = client.db('crypto');
+            var collection = 'coins';
             
             var newvalues = 
             { 
-                "coin_id": this.allCoins[i].id,
-                "symbol": this.allCoins[i].symbol,
-                "price_usd": this.allCoins[i].price_usd,
-                "24h_volume_usd": this.allCoins[i]["24h_volume_usd"],
-                "market_cap_usd": this.allCoins[i].market_cap_usd,
-                "available_supply": this.allCoins[i].available_supply,
-                "total_supply": this.allCoins[i].total_supply,
-                "r_score": "0",
-                "r_activity": "0",
-                "r_24hr": "0",
-                "t_activity": "0",
-                "t_24hr": "0",
-                "hour": this.allCoins[i].hour,
-                "day": this.allCoins[i].day,
-                "week": this.allCoins[i].week,
-                "updated": new Date()
+                "coin_id": this.allCoins.id,
+                "symbol": this.allCoins.symbol
             };
             
             // Do Work
@@ -75,7 +61,7 @@ MongoClient.connect(db_url, function (err, client) {
 
 var newvalues = 
 { 
-    "coin_id": coin_id,
+    "coin_id": this.allCoins.id,
     "data":
         [
             {
@@ -91,8 +77,8 @@ var newvalues =
 };
 var newvalues = 
 { 
-    "coin_id": coin_id,
-    "symbol": coin_symbol
+    "coin_id": this.allCoins.id,
+    "symbol": this.allCoins.symbol
 };
 var newvalues = 
 { 

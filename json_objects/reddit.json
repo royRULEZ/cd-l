@@ -1,3 +1,12 @@
+/*
+*
+
+Main Table:
+Collect this from Reddit each day for each coin and store it. 
+
+*
+*/
+
 [
     {
         "coin_id": "<coin_id>",
@@ -5,18 +14,42 @@
         [
             {
                 "day": "Jan 9 2018",
+                "created": { $type: "timestamp" },
                 "new_posts": "10",
                 "comment_sum": "1022",
                 "score_sum": "1233",
-                "crosspost_sum": "34"
+                "crosspost_sum": "34",
+                "sentiment_score": "0"
             },
             {
                 "day": "Jan 10 2018",
+                "created": { $type: "timestamp" },
                 "new_posts": "10",
                 "comment_sum": "1022",
                 "score_sum": "1233",
-                "crosspost_sum": "34"
+                "crosspost_sum": "34",
+                "sentiment_score": "0"
             }            
         ]
     }
 ]
+
+
+
+//$setOnInsert: { dateAdded: new Date("<YYYY-mm-dd>") }
+
+db.products.insert({ 
+    item: "card", qty: 15 
+});
+
+
+db.products.insert({ 
+   <query>,
+   <update>,
+   {
+     upsert: <boolean>,
+     multi: <boolean>,
+     writeConcern: <document>,
+     collation: <document>,
+     arrayFilters: [ <filterdocument1>, ... ]
+   });

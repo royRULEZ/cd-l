@@ -31,13 +31,45 @@ MongoClient.connect(db_url, function (err, client) {
 
             // Setup
             var db = client.db('crypto');
-            var collection = 'coins';
+            var collection = 'main';
             
             var newvalues = 
             { 
-                "coin_id": this.allCoins.id,
-                "symbol": this.allCoins.symbol
-            };
+                "coin_id": this.allCoins[i].id,
+                "symbol": this.allCoins[i].symbol,
+                "price_usd": this.allCoins[i].price_usd,
+                "24h_volume_usd": this.allCoins[i]["24h_volume_usd"],
+                "market_cap_usd": this.allCoins[i].market_cap_usd,
+                "available_supply": this.allCoins[i].available_supply,
+                "total_supply": this.allCoins[i].total_supply,
+                "r_data":
+                    [
+                        {
+                            "day": "Jan 8 2018",
+                            "created": new Date(),
+                            "new_posts": "0",
+                            "comment_sum": "0",
+                            "score_sum": "0",
+                            "crosspost_sum": "0",
+                            "sentiment_score": "0"                
+                        }
+                    ],
+                "t_data":
+                    [
+                        {
+                            "day": "Jan 8 2018",
+                            "created": new Date(),
+                            "new_tweets": "0",
+                            "retweet_count": "0",
+                            "favorite_count": "0",
+                            "sentiment_score": "0"                
+                        }
+                    ],        
+                "hour": this.allCoins[i].percent_change_1h,
+                "day": this.allCoins[i].percent_change_24h,
+                "week": this.allCoins[i].percent_change_7d,
+                "updated": new Date()
+            }; 
             
             // Do Work
             db.collection(collection).insertOne(newvalues, function(err, res) {
@@ -94,12 +126,59 @@ var newvalues =
     "r_24hr": "0",
     "t_activity": "0",
     "t_24hr": "0",
-    "hour": this.allCoins[i].hour,
-    "day": this.allCoins[i].day,
-    "week": this.allCoins[i].week,
+    "hour": this.allCoins[i].percent_change_1h,
+    "day": this.allCoins[i].percent_change_24h,
+    "week": this.allCoins[i].percent_change_7d,
     "updated": new Date()
-};               
+}; 
+// Table
+var newvalues = 
+{ 
+    "coin_id": this.allCoins[i].id,
+    "symbol": this.allCoins[i].symbol,
+    "price_usd": this.allCoins[i].price_usd,
+    "24h_volume_usd": this.allCoins[i]["24h_volume_usd"],
+    "market_cap_usd": this.allCoins[i].market_cap_usd,
+    "available_supply": this.allCoins[i].available_supply,
+    "total_supply": this.allCoins[i].total_supply,
+    "r_data":
+        [
+            {
+                "day": "Jan 8 2018",
+                "created": new Date(),
+                "new_posts": "0",
+                "comment_sum": "0",
+                "score_sum": "0",
+                "crosspost_sum": "0",
+                "sentiment_score": "0"                
+            }
+        ],
+    "t_data":
+        [
+            {
+                "day": "Jan 8 2018",
+                "created": new Date(),
+                "new_tweets": "0",
+                "comment_sum": "0",
+                "rt_sum": "0",
+                "sentiment_score": "0"                
+            }
+        ],        
+    "hour": this.allCoins[i].percent_change_1h,
+    "day": this.allCoins[i].percent_change_24h,
+    "week": this.allCoins[i].percent_change_7d,
+    "updated": new Date()
+}; 
                
+
+
+
+
+
+
+
+
+
 
 
 // Notes

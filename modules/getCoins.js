@@ -17,18 +17,8 @@ axios
   .get(url)
   .then(response => {
     this.allCoins = response.data;
-    var redditURL = 'https://www.reddit.com/r/cryptocurrency/search.json?q='+this.allCoins[0].symbol+'&restrict_sr=on';
-    axios
-      .get(redditURL)
-      .then(response => {
-        this.redditData = response.data;
-        console.log(this.redditData.kind);
-        
-
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    
+    
   })
   .catch(error => {
     console.log(error);

@@ -11,7 +11,7 @@ const MongoClient   = require('mongodb').MongoClient;
 const request = require('sync-request');
 
 // Database
-var db_url = "mongodb://@localhost";
+var db_url = "mongodb://adminRoy:admingatorade12!@localhost";
 
 // Variables (Change As Needed)
 const allCoins = [];

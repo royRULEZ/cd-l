@@ -9,7 +9,9 @@ const axios = require("axios");
 const MongoClient   = require('mongodb').MongoClient;
 
 // Database
-var db_url = "mongodb://@localhost";
+//var db_url = "mongodb://@localhost";
+var db_url = "mongodb://adminRoy:admingatorade12!@localhost";
+
 
 // Variables (Change As Needed)
 const allCoins = [];

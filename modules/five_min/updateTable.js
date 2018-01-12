@@ -11,7 +11,7 @@ const MongoClient   = require('mongodb').MongoClient;
 const request = require('sync-request');
 
 // Database
-var db_url = "mongodb://adminRoy:admingatorade12!@localhost";
+var db_url = "mongodb://@localhost";
 
 // Variables (Change As Needed)
 const allCoins = [];
@@ -29,7 +29,7 @@ MongoClient.connect(db_url, function (err, client) {
             
             // Setup
             var db = client.db('crypto');
-            var collection = 'main';
+            var collection = 'main_';
             var coin_id_ = this.allCoins[i].id;
             var query = 
                 { 
@@ -48,7 +48,7 @@ MongoClient.connect(db_url, function (err, client) {
                     "hour": parseFloat(this.allCoins[i].percent_change_1h),
                     "day": parseFloat(this.allCoins[i].percent_change_24h),
                     "week": parseFloat(this.allCoins[i].percent_change_7d),
-                    "updated": new Date()
+                    "updated": new Date().getTime()
                 }
             };
 
@@ -56,7 +56,7 @@ MongoClient.connect(db_url, function (err, client) {
         
 
             // Do Work
-            db.collection(collection).updateOne(query, newvalues, function(err, res) {
+            db.collection(collection).updateOne(query, newvalues, {upsert: true}, function(err, res) {
                 if (err) throw err;
                 client.close();
             });

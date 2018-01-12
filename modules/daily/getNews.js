@@ -1,0 +1,1 @@
+//https://newsapi.org/v2/everything?q=apple&from=2018-01-11&to=2018-01-11&sortBy=popularity&apiKey=119b80e67fe84f37a70d54238c5d566b

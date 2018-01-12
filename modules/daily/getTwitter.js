@@ -33,7 +33,8 @@ include_entities    optional	The entities node will not be included when set to 
 client.get('search/tweets', {q: 'Bitcoin', count: '100'}, function(error, tweets, response) {
     console.log(tweets.statuses.length);
     for(i = 0; i < tweets.statuses.length; i++){
-        console.log(tweets.statuses[i].text);
+        //console.log(tweets.statuses[i].text);
+        console.log(tweets.statuses[i]);
     }
 });
 

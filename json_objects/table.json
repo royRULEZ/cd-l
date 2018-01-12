@@ -1,18 +1,28 @@
+/*
+
+JSON Object for homepage table
+
+*/
+
 [
     {
-        "id": "<coin id>",
+        "coin_id": "<coin id>",
         "symbol": "<coin symbol>",
         "name": "<coin name>",
-        "price": "30403.34",
-        "marketcap": "234234234",
-        "circulating": "234234234",
-        "reddit_score": "234",
-        "reddit_activity": "234",
-        "reddit_48hr": "234",
-        "twitter_activity": "234",
-        "twitter_48hr": "234",
-        "hour": "34.2",
-        "day": "34.2",
-        "week": "34.2"
+        "price_usd": 0.000,
+        "volume_24hr_usd": 0,
+        "market_cap_usd": 0,
+        "available_supply": 0,
+        "total_supply": 0,
+        "r_score": 0,
+        "r_activity": 0,
+        "r_week_change": [0,0,0,0,0,0,0],
+        "t_activity": 0,
+        "t_week_change": [0,0,0,0,0,0,0,0],
+        "p_week_change": [0,0,0,0,0,0,0,0],
+        "hour_change": 0.00,
+        "day_change": 0.00,
+        "week_change": 0.00,
+        "update": 0,
     }
 ]

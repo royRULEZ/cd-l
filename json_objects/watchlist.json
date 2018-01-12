@@ -1,0 +1,18 @@
+/*
+
+JSON Object for watchlist header
+
+*/
+
+[
+    {
+        "coin_id": "<coin id>",
+        "symbol": "<coin symbol>",
+        "name": "<coin name>",
+        "price_usd": 0.000,
+        "r_week_change": [0,0,0,0,0,0,0],
+        "day_change": 0.00,
+        "week_change": 0.00,
+        "update": 0,
+    }
+]

@@ -9,8 +9,7 @@ const axios = require("axios");
 const MongoClient   = require('mongodb').MongoClient;
 
 // Database
-//var db_url = "mongodb://@localhost";
-var db_url = "mongodb://adminRoy:admingatorade12!@localhost";
+var db_url = "mongodb://@localhost";
 
 
 // Variables (Change As Needed)
@@ -18,10 +17,7 @@ const allCoins = [];
 const url = "https://api.coinmarketcap.com/v1/ticker/?limit=0";
 
 
-
 // Request for all coins
-
-    
 MongoClient.connect(db_url, function (err, client) {
     axios
     .get(url)
@@ -33,44 +29,56 @@ MongoClient.connect(db_url, function (err, client) {
 
             // Setup
             var db = client.db('crypto');
-            var collection = 'main';
+            var collection = 'main_';
+            var date = new Date();
+            var options = { year: 'numeric', month: 'short'};
+            var _resultDate = new Intl.DateTimeFormat('en-GB', options).format(date);
             
             var newvalues = 
             { 
                 "coin_id": this.allCoins[i].id,
                 "symbol": this.allCoins[i].symbol,
-                "price_usd": this.allCoins[i].price_usd,
-                "24h_volume_usd": this.allCoins[i]["24h_volume_usd"],
-                "market_cap_usd": this.allCoins[i].market_cap_usd,
-                "available_supply": this.allCoins[i].available_supply,
-                "total_supply": this.allCoins[i].total_supply,
+                "price_usd": parseFloat(this.allCoins[i].price_usd),
+                "24h_volume_usd": parseFloat(this.allCoins[i]["24h_volume_usd"]),
+                "market_cap_usd": parseFloat(this.allCoins[i].market_cap_usd),
+                "available_supply": parseFloat(this.allCoins[i].available_supply),
+                "total_supply": parseFloat(this.allCoins[i].total_supply),
                 "r_data":
-                    [
-                        {
-                            "day": "Jan 8 2018",
-                            "created": new Date(),
-                            "new_posts": "0",
-                            "comment_sum": "0",
-                            "score_sum": "0",
-                            "crosspost_sum": "0",
-                            "sentiment_score": "0"                
-                        }
-                    ],
+                [
+                    {
+                        "day": _resultDate,
+                        "created": new Date().getTime(),
+                        "new_posts": 0,
+                        "comment_sum": 0,
+                        "score_sum": 0,
+                        "crosspost_sum": 0,
+                        "sentiment_score": 0                
+                    }
+                ],
                 "t_data":
-                    [
-                        {
-                            "day": "Jan 8 2018",
-                            "created": new Date(),
-                            "new_tweets": "0",
-                            "retweet_count": "0",
-                            "favorite_count": "0",
-                            "sentiment_score": "0"                
-                        }
-                    ],        
-                "hour": this.allCoins[i].percent_change_1h,
-                "day": this.allCoins[i].percent_change_24h,
-                "week": this.allCoins[i].percent_change_7d,
-                "updated": new Date()
+                [
+                    {
+                        "day": _resultDate,
+                        "created": new Date().getTime(),
+                        "new_tweets": 0,
+                        "retweet_count": 0,
+                        "favorite_count": 0,
+                        "sentiment_score": 0                
+                    }
+                ],  
+                "p_data": 
+                [
+                    {
+                        "day": _resultDate,
+                        "created": new Date().getTime(),
+                        "price_usd": 0
+                    }
+
+                ],
+                "hour": parseFloat(this.allCoins[i].percent_change_1h),
+                "day": parseFloat(this.allCoins[i].percent_change_24h),
+                "week": parseFloat(this.allCoins[i].percent_change_7d),
+                "updated": new Date().getTime()
             }; 
             
             // Do Work
@@ -88,11 +96,9 @@ MongoClient.connect(db_url, function (err, client) {
     });
 }); 
 
-
 // End
 
 /*
-
 var newvalues = 
 { 
     "coin_id": this.allCoins.id,
@@ -171,7 +177,8 @@ var newvalues =
     "week": this.allCoins[i].percent_change_7d,
     "updated": new Date()
 }; 
-               
+*/
+
 
 
 

@@ -23,6 +23,46 @@ JSON Object for homepage table
         "hour_change": 0.00,
         "day_change": 0.00,
         "week_change": 0.00,
-        "update": 0,
+        "updated": 0,
     }
 ]
+
+
+/*
+
+Key
+
+        "coin_id": "<coin id>",
+        "symbol": "<coin symbol>",
+        "name": "<coin name>",
+        "price_usd": 0.000,
+        "volume_24hr_usd": 0,
+        "market_cap_usd": 0,
+        "available_supply": 0,
+        "total_supply": 0,
+        "r_score": 0,
+        "r_activity": 0,
+        "r_week_change": [0,0,0,0,0,0,0],
+        "t_activity": 0,
+        "t_week_change": [0,0,0,0,0,0,0,0],
+        "p_week_change": [0,0,0,0,0,0,0,0],
+        "hour_change": 0.00,
+        "day_change": 0.00,
+        "week_change": 0.00,
+        "update": 0,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
